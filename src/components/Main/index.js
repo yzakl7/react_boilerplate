@@ -11,15 +11,13 @@ import SignIn from '../Login/SignIn';
 class Main extends Component {
   render() {
     return (
-      <Fragment>
         <Router>
           <Fragment>
-            <Navigation />
+            <Navigation getRoute={this.getRoute} />
             <Route exact path={ROUTES.ROOT} component={Dashboard} />
             <Route exact path={ROUTES.SIGN_IN} component={SignIn} />
           </Fragment>
         </Router>
-      </Fragment>
     );
   }
 }
