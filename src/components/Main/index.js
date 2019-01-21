@@ -9,19 +9,28 @@ import Dashboard from '../Dashboard';
 import SignIn from '../Login/SignIn';
 import SignUp from '../Login/SignUp';
 
+import { withAuthentication } from '../Session';
+
 class Main extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      authUser: null,
+    };
+  }
   render() {
     return (
-        <Router>
-          <Fragment>
-            <Navigation/>
-            <Route exact path={ROUTES.ROOT} component={Dashboard} />
-            <Route exact path={ROUTES.SIGN_IN} component={SignIn} />
-            <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
-          </Fragment>
-        </Router>
+      <Router>
+        <Fragment>
+          <Navigation/>
+          <Route exact path={ROUTES.ROOT} component={Dashboard} />
+          <Route exact path={ROUTES.SIGN_IN} component={SignIn} />
+          <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
+        </Fragment>
+      </Router>
     );
   }
 }
 
-export default Main;
+export default withAuthentication(Main);
