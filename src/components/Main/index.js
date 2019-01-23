@@ -10,6 +10,7 @@ import SignIn from '../Login/SignIn';
 import SignUp from '../Login/SignUp';
 
 import { withAuthentication } from '../Session';
+import Landing from '../Landing';
 
 class Main extends Component {
   constructor(props) {
@@ -24,7 +25,8 @@ class Main extends Component {
       <Router>
         <Fragment>
           <Navigation/>
-          <Route exact path={ROUTES.ROOT} component={Dashboard} />
+          <Route exact path={ROUTES.DASHBOARD} component={Dashboard} />
+          <Route exact path={ROUTES.LANDING} component={Landing} />
           <Route exact path={ROUTES.SIGN_IN} component={SignIn} />
           <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
         </Fragment>

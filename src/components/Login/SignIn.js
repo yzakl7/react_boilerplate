@@ -1,7 +1,9 @@
 import React from 'react';
 import './Login.scss';
 import { FirebaseContext } from '../Firebase';
+import { Link } from 'react-router-dom';
 
+import * as ROUTES from '../Router/Routes';
 const INITIAL_STATE = {
   email: '',
   password: '',
@@ -24,15 +26,13 @@ class SignIn extends React.Component {
       .doSignInWithEmailAndPassword(email, password)
       .then(authUser => {
         this.setState({ ...INITIAL_STATE });
-        // this.props.history.push('/');
+        this.props.history.push('/dashboard');
       })
       .catch(error => {
         this.setState({ error });
       });
 
     event.preventDefault();
-    console.log(firebase);
-    console.log(firebase.auth);
   };
 
 
@@ -47,7 +47,6 @@ class SignIn extends React.Component {
         <FirebaseContext.Consumer>
           {firebase =>
             <form onSubmit={e => this.onSubmit(e, firebase)}>
-            {console.log(firebase.auth)}
               <label htmlFor="">
                 Email:
                 <input
@@ -68,8 +67,10 @@ class SignIn extends React.Component {
                   placeholder="Password"
                 />
               </label>
-              <button type="submit">Sign Up</button>
-              {error && <p>{error.message}</p>}
+              <button type="submit">Sign In</button>
+                {error && <p>{error.message}</p>}
+                <p> Not registered? <Link to={ROUTES.SIGN_UP}>sign up</Link> </p>
+                <p> <Link to={ROUTES.LANDING}>Home</Link> </p>
             </form>
           }
         </FirebaseContext.Consumer>

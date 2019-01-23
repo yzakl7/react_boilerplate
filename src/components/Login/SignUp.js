@@ -21,13 +21,13 @@ class SignUp extends React.Component {
   };
 
   onSubmit = (event, firebase) => {
-    const { username, email, passwordOne } = this.state;
+    const { email, passwordOne } = this.state;
 
     firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
         this.setState({ ...INITIAL_STATE });
-        this.props.history.push('/');
+        this.props.history.push('/signin');
       })
       .catch(error => {
         this.setState({ error });
