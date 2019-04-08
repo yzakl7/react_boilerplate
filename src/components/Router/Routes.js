@@ -1,6 +1,10 @@
 export const ROOT = '/';
 export const DASHBOARD = '/dashboard';
 export const LANDING = '/home';
+export const NOSOTROS = '/nosotros';
+export const SERVICIOS = '/servicios';
+export const GALERIA = '/galeria';
+export const CONTACTO = '/contacto';
 export const SIGN_IN = '/signin';
 export const SIGN_UP = '/signup';
 

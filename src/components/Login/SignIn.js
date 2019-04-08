@@ -69,8 +69,7 @@ class SignIn extends React.Component {
               </label>
               <button type="submit">Sign In</button>
                 {error && <p>{error.message}</p>}
-                <p> Not registered? <Link to={ROUTES.SIGN_UP}>sign up</Link> </p>
-                <p> <Link to={ROUTES.LANDING}>Home</Link> </p>
+                <p> <Link to={ROUTES.LANDING}>Regresar a la página principal</Link> </p>
             </form>
           }
         </FirebaseContext.Consumer>

@@ -3,46 +3,199 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary, 	
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: flex;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
+/* LAYOUTING */
+.layout {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  flex: 0 0 auto;
+  transition: all ease-in-out 0.3s;
+}
+
+/* .bloque {
+  background: rgba(150, 150, 150, 0.3);
+  padding: 15px;
+  margin: 2px;
+  border-radius: 3px;
+  box-sizing: border-box;
+} */
+.mobile-top-bar {
+  visibility: hidden;
+  position: absolute;
+}
+.main-menu-item {
+  flex: 1;
+  width: 100%;
+  height: 50px;
+}
+.main-menu-item a {
+  transition: all ease-in-out 0.3s;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+}
+.main-menu-item a:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+@media screen and (max-width: 500px) {
+  .main-frame {
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+  }
+  .layout {
+    flex-direction: row;
+    flex: 0 0 165vw;
+  }
+  .layout.closed {
+    transform: translateX(-65vw);
+  }
+ 
+  .mobile-top-bar {
+    visibility: visible;
+    position: relative;
+  }
+  .main-menu {
+    flex: 0 0 65vw;
+    flex-direction: column;
+  }
+  .main-menu-item {
+    flex: unset;
+    min-width: 100%;
+  }
+  .content-wrapper {
+    flex: 0 0 100vw;
+    height: 100vh;
+    overflow: auto;
+  }
+}
+/* END OF LAYOUTING */
